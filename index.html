@@ -1,0 +1,515 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/styles/Main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>Ali Donyadoost</title>
+</head>
+<body>
+    <!-- #region body -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-9 p-0 row">
+                <div class="col-12 col-md-8">
+                    <section class="top-news pb-2">
+                        <div class="position-relative radius">
+                            <img class="w-100" id="top-news-img" alt="top-news-img" />
+                            <div class="caption position-absolute text-right p-3 w-100" id="top-news-title"></div>
+                        </div>
+                    </section>
+                    <section class="d-md-none">
+                        <section class="my-fars mb-2">
+                            <div class="campaigns position-relative">
+                                <div class="campaign-logo position-relative w-100">
+                                    <span class="campaign-count position-absolute">
+                                        اعضا
+                                        <span class="count mx-2" id="count"></span>
+                                    </span>
+                                    <img class="campaign-icon position-absolute" src="assets/icons/icb.svg" />
+                                </div>
+                                <div class="campaigns-count position-relative pb-1 pt-1 align-items-center" id="camp-count"></div>
+                                <div class="mx-2 mb-2 mt-1 pb-2">
+                                    <a class="btn camp-follow" href="#">ایجاد پویش</a>
+                                    <a class="btn camp-follow" style="margin: 0 1%;" href="#">گزارش فساد</a>
+                                    <a class="btn camp-follow" href="#">سایر موارد</a>
+                                </div>
+                            </div>
+                        </section>
+                    </section>
+                    <section class="top-middle-news news-list">
+                        <ul class="list-unstyled p-0 m-0" id="news-list-item"></ul>
+                    </section>
+                </div>
+                <div class="col-12 col-md-4">
+                    <section class="user-chosen w-100 radius">
+                        <div class="box-header position-relative py-2 px-3 radius-only-top">
+                            <h2 class="float-end">برگزیده ها</h2>
+                            <img class="float-start" src="assets/icons/group-layout.png" />
+                        </div>
+                        <div class="scroll-content">
+                            <ul class="list-unstyled w-100 pb-3" id="mvps-list-item">
+                                <li class="mvps-li text-right py-1 px-3 word-wrap d-flex align-items-center">
+                                    <div class="diamond position-relative ml-3 mt-0"></div>
+                                    <h3>متن تستی</h3>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="most visit-chosen  w-100 d-flex flex-column  position-relative mt-2">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item col p-0 border-left">
+                                <h2 class="active nav-link chosen-news d-flex justify-content-center align-items-center radius" onclick="MostVisited()" id="most-reads">پرخواننده ها</h2>
+                            </li>
+                            <li class="nav-item col p-0 border-left">
+                                <h2 class="nav-link chosen-news d-flex justify-content-center align-items-center radius" onclick="MostContract()" id="most-talks">پربحث ها</h2>
+                            </li>
+                            <li class="nav-item col p-0">
+                                <h2 class="nav-link chosen-news d-flex justify-content-center align-items-center radius" onclick="MostRelevant()" id="most-encoraged">توصیه شده ها</h2>
+                            </li>
+                        </ul>
+                        <div class="tab-content pt-3 news-list-small">
+                            <div class="active tab-pane" id="most-r">
+                                <ul class="scroll-content list-unstyled w-100 pb-3" id="most-visited">
+                                    <li class="news-list-small-text border-bottom text-right pr-2 pl-3 py-2 d-flex align-items-center">
+                                        <span class="index radius">۱</span>
+                                        <h3 class="text pr-2 d-flex align-items-center justify-content-between w-100">مداحی محمدرضا و حسین طاهری در بیروت+فیلم</h3>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-pane" id="most-t">
+                                <ul class="scroll-content list-unstyled w-100 pb-3" id="most-contract">
+                                    <li class="news-list-small-text border-bottom text-right pr-2 pl-3 py-2 d-flex align-items-center">
+                                        <span class="index radius">۱</span>
+                                        <h3 class="text pr-2 d-flex align-items-center justify-content-between w-100">مداحی محمدرضا و حسین طاهری در بیروت+فیلم</h3>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-pane" id="most-e">
+                                <ul class="scroll-content list-unstyled w-100 pb-3" id="most-relevant">
+                                    <li class="news-list-small-text border-bottom text-right pr-2 pl-3 py-2 d-flex align-items-center">
+                                        <span class="index radius">۱</span>
+                                        <h3 class="text pr-2 d-flex align-items-center justify-content-between w-100">مداحی محمدرضا و حسین طاهری در بیروت+فیلم</h3>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3 mt-3 mt-md-0 main-left-col p-0">
+                <div class="adverBox w-100 h-100 padding-normal d-flex flex-column">
+                    <section class="d-flex flex-column my-fars mb-2 radius">
+                        <div class="FarsLinkIndex  d-none justify-content-between py-2 px-3">
+                            <img class="float-end cursor-pointer" src="assets/icons/ic.svg" />
+                            <span><span id="user-count"></span> عضو</span>
+                        </div>
+                        <div class="position-relative">
+                            <div class="swiper mySwiper-user"> 
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">Slide 1</div>
+                                    <div class="swiper-slide">Slide 2</div>
+                                    <div class="swiper-slide">Slide 3</div>
+                                    <div class="swiper-slide">Slide 4</div>
+                                    <div class="swiper-slide">Slide 5</div>
+                                    <div class="swiper-slide">Slide 6</div>
+                                    <div class="swiper-slide">Slide 7</div>
+                                    <div class="swiper-slide">Slide 8</div>
+                                    <div class="swiper-slide">Slide 9</div>
+                                </div>
+                                <div class="btn-next-user position-absolute"><img src="assets/icons/next.png"/></div>
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #endregion body-->
+</body>
+<script>
+    var _content = [
+        {
+            imgSrc: "https://loremflickr.com/745/375?random=1",
+            title: "تنها یک متن تصادفی شامل چند کلمه بدون منظور و معنی"
+        }
+    ];
+    var _campaignCount = "6,253,867";
+    var _campsCount =
+        [
+            {
+                cat: "سوژه ها",
+                count: "84.6 هزار"
+            },
+            {
+                cat: "حامیان",
+                count: "16.5 میلیون"
+            },
+            {
+                cat: "پیگیری ها",
+                count: "77.7 هزار"
+            }
+        ];
+    var _topMiddleNews = [
+        {
+            imgSrc: "https://loremflickr.com/360/180?random=2",
+            title: "متن تصادفی و بی معنی برای تیتر اخبار میانی",
+            time: "17 ساعت قبل",
+            cat: "سیاست خارجی",
+            txt: "متن بی معنی برای متن خبر اخبار میانی"
+        },
+        {
+            imgSrc: "https://loremflickr.com/360/180?random=3",
+            title: "متن تصادفی و بی معنی برای تیتر اخبار میانی",
+            time: "15 ساعت قبل",
+            cat: "سیاسی",
+            txt: "متن بی معنی برای متن خبر اخبار میانی"
+        },
+        {
+            imgSrc: "https://loremflickr.com/360/180?random=4",
+            title: "متن تصادفی و بی معنی برای تیتر اخبار میانی",
+            time: "13 ساعت قبل",
+            cat: "دانشگاه",
+            txt: "متن بی معنی برای متن خبر اخبار میانی"
+        },
+        {
+            imgSrc: "https://loremflickr.com/360/180?random=5",
+            title: "متن تصادفی و بی معنی برای تیتر اخبار میانی",
+            time: "10 ساعت قبل",
+            cat: "زندگی",
+            txt: "متن بی معنی برای متن خبر اخبار میانی"
+        },
+        {
+            imgSrc: "https://loremflickr.com/360/180?random=6",
+            title: "متن تصادفی و بی معنی برای تیتر اخبار میانی",
+            time: "9 ساعت قبل",
+            cat: "استان ها",
+            txt: "متن بی معنی برای متن خبر اخبار میانی"
+        },
+        {
+            imgSrc: "https://loremflickr.com/360/180?random=7",
+            title: "متن تصادفی و بی معنی برای تیتر اخبار میانی",
+            time: "4 ساعت قبل",
+            cat: "سیاسی",
+            txt: "متن بی معنی برای متن خبر اخبار میانی"
+        },
+        {
+            imgSrc: "https://loremflickr.com/360/180?random=8",
+            title: "متن تصادفی و بی معنی برای تیتر اخبار میانی",
+            time: "4 ساعت قبل",
+            cat: "سیاسی",
+            txt: "متن بی معنی برای متن خبر اخبار میانی"
+        },
+        {
+            imgSrc: "https://loremflickr.com/360/180?random=9",
+            title: "متن تصادفی و بی معنی برای تیتر اخبار میانی",
+            time: "1 ساعت قبل",
+            cat: "سیاسی",
+            txt: "متن بی معنی برای متن خبر اخبار میانی"
+        },
+        {
+            imgSrc: "https://loremflickr.com/360/180?random=10",
+            title: "متن تصادفی و بی معنی برای تیتر اخبار میانی",
+            time: "57 دقیقه قبل",
+            cat: "سیاسی",
+            txt: "متن بی معنی برای متن خبر اخبار میانی"
+        },
+        {
+            imgSrc: "https://loremflickr.com/360/180?random=11",
+            title: "متن تصادفی و بی معنی برای تیتر اخبار میانی",
+            time: "45 دقیقه قبل",
+            cat: "سیاسی",
+            txt: "متن بی معنی برای متن خبر اخبار میانی"
+        },
+        {
+            imgSrc: "https://loremflickr.com/360/180?random=12",
+            title: "متن تصادفی و بی معنی برای تیتر اخبار میانی",
+            time: "40 دقیقه قبل",
+            cat: "سیاسی",
+            txt: "متن بی معنی برای متن خبر اخبار میانی"
+        },
+        {
+            imgSrc: "https://loremflickr.com/360/180?random=13",
+            title: "متن تصادفی و بی معنی برای تیتر اخبار میانی",
+            time: "28 دقیقه قبل",
+            cat: "سیاسی",
+            txt: "متن بی معنی برای متن خبر اخبار میانی"
+        },
+    ];
+    var _mvpsContent = [
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        },
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        },
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        },
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        },
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        },
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        },
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        },
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        },
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        },
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        },
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        },
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        },
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        },
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        },
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        },
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        },
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        },
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        },
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        },
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        },
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        },
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        },
+        {
+            text: "متن تصادفی بی معنی برای لیست برگزیده ها"
+        }
+    ];
+    var _MostVisited = [
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پرخواننده ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پرخواننده ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پرخواننده ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پرخواننده ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پرخواننده ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پرخواننده ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پرخواننده ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پرخواننده ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پرخواننده ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پرخواننده ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پرخواننده ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پرخواننده ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پرخواننده ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پرخواننده ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پرخواننده ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پرخواننده ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پرخواننده ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پرخواننده ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پرخواننده ها"
+        },
+    ];
+    var _MostContract = [
+        {
+            text: "تنها یک متن تصادفی برای تست بخش بر بحث ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پر بحث ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پر بحث ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پر بحث ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پر بحث ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش پر بحث ها"
+        }
+    ];
+    var _MostRelevant = [
+        {
+            text: "تنها یک متن تصادفی برای تست بخش توصیه شده ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش توصیه شده ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش توصیه شده ها"
+        },
+        {
+            text: "تنها یک متن تصادفی برای تست بخش توصیه شده ها"
+        }
+
+    ];
+</script>
+<script>
+    $(document).ready(function content() {
+        var html = '';
+
+        $("#top-news-img").attr("src", _content[0].imgSrc);
+
+        $("#top-news-title").html('<h3 class="cursor-pointer">' + _content[0].title + '</h3>');
+
+        $(".campaign-count #count").html(_campaignCount);
+
+        $("#user-count").html(_campaignCount);
+
+        html = '';
+        _campsCount.forEach(function (camp, index) {
+            html += ("<span class=\"campaign-items pr-1\"" + ((index === 1) ? "style =\"margin: 0 1%;\">" : ">")
+                + camp.cat + "<span class= \"count mx-1\" >" + camp.count + "</span></span> ");
+        });
+        $("#camp-count").html(html);
+
+        html = '';
+        _topMiddleNews.forEach(function (item) {
+            html += '<li class="media py-9d border-bottom position-relative row hovertype1"><div class="col-5 col-sm-4 px-0 align-self-center position-relative img-box"><img class="w-100 lazyimage radius" src = "'
+                + item.imgSrc + '" /><div class="category w-100 padding-normal hovertype1obj"><span class="headline radius">'
+                + item.cat + '</span></div></div><div class="col-7 col-sm-8 media-body text-right place d-flex flex-column justify-content-between align-self-stretch">'
+                + '<div class="d-flex flex-column"><span class="whitespace d-none d-sm-block mb-1"></span>'
+                + '<h3 class="title hovertextcolor cursor-pointer">' + item.title + '</h3><div class="time-category text-left mt-2 d-block d-md-none">'
+                + '<span>' + item.time + '</span><span class="ver-line">|</span><span>'
+                + item.cat + '</span></div></div><div class="d-md-flex align-items-start rel-news w-100 mt-2 d-none">'
+                + '<div class="diamond position-relative ml-3"></div><h4 class="cursor-pointer">' + item.txt + '</h4></div></div></li>';
+        });
+        $("#news-list-item").html(html);
+
+        html = '';
+        _mvpsContent.forEach(function (item) {
+            html += '<li class="mvps-li text-right py-1 px-3 word-wrap d-flex align-items-center">'
+                + '<div class="diamond position-relative ml-3 mt-0"></div>'
+                + '<h3 class="hovertextcolor cursor-pointer">' + item.text + '</h3></li>';
+        });
+        $("#mvps-list-item").html(html);
+
+        html = '';
+        _MostVisited.forEach(function (item, index) {
+            html += '<li class="news-list-small-text border-bottom text-right pr-2 pl-3 py-2 d-flex align-items-center">'
+                + '<span class="index radius" >' + (index + 1) + '</span>'
+                + '<h3 class="text pr-2 d-flex align-items-center justify-content-between w-100 hovertextcolor cursor-pointer" >'
+                + item.text + '</h3></li>';
+        })
+        $('#most-visited').html(html);
+
+        html = '';
+        _MostContract.forEach(function (item, index) {
+            html += '<li class="news-list-small-text border-bottom text-right pr-2 pl-3 py-2 d-flex align-items-center">'
+                + '<span class="index radius" >' + (index + 1) + '</span>'
+                + '<h3 class="text pr-2 d-flex align-items-center justify-content-between w-100 hovertextcolor cursor-pointer" >'
+                + item.text + '</h3></li>';
+        })
+        $('#most-contract').html(html);
+
+        html = '';
+        _MostRelevant.forEach(function (item, index) {
+            html += '<li class="news-list-small-text border-bottom text-right pr-2 pl-3 py-2 d-flex align-items-center">'
+                + '<span class="index radius" >' + (index + 1) + '</span>'
+                + '<h3 class="text pr-2 d-flex align-items-center justify-content-between w-100 hovertextcolor cursor-pointer" >'
+                + item.text + '</h3></li>';
+        })
+        $('#most-relevant').html(html);
+    });
+    function MostContract() {
+        $("#most-reads").removeClass("active");
+        $("#most-encoraged").removeClass("active");
+        $("#most-talks").addClass("active");
+        $("#most-r").removeClass("active");
+        $("#most-e").removeClass("active");
+        $("#most-t").addClass("active");
+    }
+    function MostRelevant() {
+        $("#most-reads").removeClass("active");
+        $("#most-talks").removeClass("active");
+        $("#most-encoraged").addClass("active");
+        $("#most-r").removeClass("active");
+        $("#most-t").removeClass("active");
+        $("#most-e").addClass("active");
+    }
+    function MostVisited() {
+        $("#most-talks").removeClass("active");
+        $("#most-encoraged").removeClass("active");
+        $("#most-reads").addClass("active");
+        $("#most-t").removeClass("active");
+        $("#most-e").removeClass("active");
+        $("#most-r").addClass("active");
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".mySwiper-user", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        navigation: {
+            nextEl: ".btn-next-user",
+            prevEl: ""
+        },
+    });
+</script>
+</html>
