@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/styles/loginPage.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>login</title>
+</head>
+<body dir="rtl">
+    <!-- #region top nav bar -->
+    <div class="container-fluid top-nav-bar">
+        <div class="container">
+            <section class="float-start top-nav-bar-sec">
+                <span class="top-nav-bar-item last-child">اخبار</span>
+                <span class="top-nav-bar-item">فارس من</span>
+                <span class="top-nav-bar-item">فارس TV</span>
+                <span class="top-nav-bar-item">افکار سنجی</span>
+                <span class="top-nav-bar-item">دانشکده</span>
+                <span class="top-nav-bar-item">انتشارات</span>
+                <span class="top-nav-bar-item">توانا</span>
+                <span class="top-nav-bar-item">فارس نوجوان</span>
+            </section>
+        </div>
+    </div>
+    <!-- #endregion top nav bar-->
+    <!-- #region fixed nav bar -->
+    <div class="container-fluid position-fixed fixed-navbar">
+        <div class="container position-relative">
+            <section class="float-start menu-search position-absolute">
+                <img src="assets/icons/search.gif" />
+                <img src="assets/icons/trilineMenu.png" />
+            </section>
+            <section class="text-center text-options position-absolute d-none d-lg-inline-block">
+                <span class="fixed-navbar-item last-child">صفحه اصلی</span>
+                <span class="fixed-navbar-item">تازه ترین مطالب</span>
+                <span class="fixed-navbar-item">مطالب پیگیری شده</span>
+                <span class="fixed-navbar-item">استان ها</span>
+                <span class="fixed-navbar-item">دسته بندی موضوعی</span>
+                <span class="fixed-navbar-item">خبر</span>
+            </section>
+            <section class="float-end user-logo position-absolute">
+                <img style="height: 30px;" src="assets/icons/farsnews-my.svg" />
+                <img style="width: 18px;" class="mx-2" src="assets/icons/user.png" />
+            </section>
+        </div>
+    </div>
+    <!-- #endregion fixed nav bar-->
+    <!-- #region body -->
+    <div class="container-fluid body-area">
+        <div class="rectangle position-absolute border-radius">
+            <section class="logo">
+                <img src="assets/icons/farsnews-my.svg" />
+            </section>
+            <div class="form-group">
+                <input type="text" name="phonenum" placeholder="شماره تلفن همراه" class="form-control border-radius text-center phone" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block border-radius">ورود</button>
+            </div>
+        </div>
+    </div>
+    <!-- #endregion body-->
+    <!-- #region footer -->
+    <div class="container-fluid footer-area position-fixed">
+        <div class="container">
+            <section class="social-media position-absolute"></section>
+            <section class="links position-absolute"></section>
+            <div>
+                <section class="corp position-absolute"></section>
+                <section class="logo position-absolute">
+                    <img src="assets/icons/farsnews-my-white.svg" />
+                </section>
+            </div>
+            <section class="licensing position-absolute"></section>
+        </div>
+    </div>
+    <!-- #endregion footer-->
+</body>
+</html>

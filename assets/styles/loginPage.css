@@ -1,0 +1,161 @@
+﻿@font-face {
+    font-family: iransans-fa;
+    src: url("../fonts/IRANSans/IRANSans-web.woff") format("woff"), url("../fonts/IRANSans/IRANSans-web.ttf") format('truetype'), url("../fonts/IRANSans/IRANSans-web.svg#svgFontName") format('svg');
+    font-weight: normal;
+    font-style: normal
+}
+
+body {
+    font-family: iransans-fa;
+    font-size: 15px;
+    background-color: #f1f1f1;
+}
+
+.row {
+    --bs-gutter-x: 0.75rem;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-.5 * var(--bs-gutter-x));
+    margin-left: calc(-.5 * var(--bs-gutter-x));
+}
+
+    .row .row {
+        margin: 0;
+    }
+
+/*#region top nav bar*/
+
+.top-nav-bar {
+    background-color: #E08433;
+    padding: 10px 0;
+    height: 30px;
+}
+
+.top-nav-bar-sec {
+    font-size: 73%;
+    font-weight: bold;
+}
+
+.top-nav-bar-item {
+    border-right: 1px solid #737171;
+    color: white;
+    padding-right: 5px;
+}
+
+.top-nav-bar .last-child {
+    border: none;
+    color: #ffb81c;
+}
+
+/*#endregion top nav bar*/
+/*#region fixed nav bar*/
+
+.fixed-navbar {
+    background-color: white;
+    font-size: 80%;
+    font-weight: bold;
+    height: 55px;
+}
+
+.fixed-navbar-item {
+    border-right: 1px solid rgba(18,18,18,0.2);
+    color: white;
+    padding-right: 5px;
+    color: #385e9d;
+}
+
+.fixed-navbar .last-child {
+    border: none;
+}
+
+.menu-search {
+    left: 0;
+    top: 15px;
+}
+
+    .menu-search img {
+        width: 24px;
+    }
+
+.text-options {
+    width: 500px;
+    left: calc(50% - 250px);
+    top: 18px;
+}
+
+.user-logo {
+    right: 0;
+    top: 12px;
+}
+
+/*#endregion top nav bar*/
+/*#region body*/
+
+.rectangle {
+    background-color: white;
+    width: 400px;
+    height: 250px;
+    top: calc(50% - 125px);
+    left: calc(50% - 200px);
+    padding: 15px;
+}
+
+.body-area {
+    height: 100%;
+}
+
+    .body-area .rectangle .logo {
+        width: 35%;
+        margin: auto;
+        margin-top: 15px;
+    }
+
+.phone {
+    margin-top: 50px;
+    margin-bottom: 40px;
+    font-size: 85%;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+/*#endregion body*/
+/*#region footer*/
+
+.footer-area {
+    background-color: #E08433;
+    height: 187px;
+    bottom: 0;
+    color: white;
+}
+
+.social-media {
+}
+
+.footer-area .links {
+}
+
+.corp {
+}
+
+.footer-area .logo {
+    bottom: 50px;
+}
+
+    .footer-area .logo img {
+        height: 30px;
+        width: auto;
+    }
+
+.licensing {
+}
+/*#endregion footer*/
+
+/*#region utils*/
+
+.border-radius {
+    border-radius: 8px 0;
+    overflow: hidden;
+}
+
+/*#endregion utils*/
